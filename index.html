@@ -1,184 +1,28 @@
-<!DOCTYPE html>
-<html lang="he" dir="rtl">
-<head>
-  <meta charset="utf-8" />
-  <title>מפת מסלול + לו"ז – ונציה & סלובניה</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-  <style>
-    body { font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; margin: 0; padding: 0; background: #f7f7f7; }
-    #map { height: 55vh; width: 100%; }
-    .panel { padding: 1rem 1.5rem 2rem 1.5rem; max-width: 1100px; margin: 0 auto; }
-    h1 { margin-top: 1rem; font-size: 1.6rem; }
-    h2 { margin-top: 1.5rem; font-size: 1.3rem; }
-    .day-block { background: #fff; border-radius: 8px; padding: 0.75rem 1rem; margin-top: 0.75rem; box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
-    .day-title { font-weight: 600; margin-bottom: 0.2rem; }
-    .day-date { color: #666; font-size: 0.8rem; margin-bottom: 0.4rem; }
-    .day-summary { margin-bottom: 0.4rem; }
-    .day-images { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 0.3rem 0 0.4rem 0; }
-    .day-images img { max-width: 210px; border-radius: 6px; border: 1px solid #ddd; background: #eee; }
-    ul { margin: 0.1rem 0 0 0; padding-right: 1.1rem; }
-    li { font-size: 0.9rem; margin: 0.1rem 0; }
-  </style>
-</head>
-<body>
-<div id="map"></div>
-<div class="panel">
-  <h1>מפת מסלול + לו"ז יומי – ונציה & סלובניה (4–14.6.2026)</h1>
-  <p>למעלה: מפת נסיעות לפי יום (קווים צבעוניים + סיכות לינה). למטה: לו"ז יומי + תמונות של המלונות והאזורים המרכזיים.</p>
-
-  <h2>לו"ז יומי ותמונות</h2>
-  <div class='day-block'>
-<div class='day-title'>יום 4/6 – הגעה לוונציה</div>
-<div class='day-date'>2026-06-04</div>
-<div class='day-summary'>נחיתה ב-Marco Polo, איסוף רכב ולינה ב-Hampton Isola Nuova.</div>
-<div class='day-images'>
-<img src='https://pplx-res.cloudinary.com/image/upload/t_thumbnail_512_smart/pplx_search_images/d501ae43502c877144558e66e745b9f5da70a3e0.jpg' loading='lazy'>
-</div>
-</div>
-<div class='day-block'>
-<div class='day-title'>יום 5/6 – ונציה → בלד + Vintgar</div>
-<div class='day-date'>2026-06-05</div>
-<div class='day-summary'>נסיעה לבלד, סיבוב סביב האגם וביקור ב-Vintgar Gorge אחר הצהריים.</div>
-<div class='day-images'>
-<img src='https://images.daytrip.com/bled.jpg?w=640&q=60' loading='lazy'>
-</div>
-<ul>
-<li>ונציה (Hampton Tronchetto) → בלד – כ-240 קמ, כ-3:05 ש' דרך A4/A2.</li>
-</ul>
-</div>
-<div class='day-block'>
-<div class='day-title'>יום 6/6 – יום טיולים בבלד</div>
-<div class='day-date'>2026-06-06</div>
-<div class='day-summary'>תצפיות Mala Osojnica/Ojstrica וטיול בינוני באזור Bled/Pokljuka.</div>
-<div class='day-images'>
-<img src='https://images.daytrip.com/bled.jpg?w=640&q=60' loading='lazy'>
-</div>
-</div>
-<div class='day-block'>
-<div class='day-title'>יום 7/6 – בלד → בובץ' + רפטינג</div>
-<div class='day-date'>2026-06-07</div>
-<div class='day-summary'>נסיעה נופית דרך Vršič pass, צ'ק-אין בבובץ' ורפטינג אחהצ ב-Soča.</div>
-<div class='day-images'>
-<img src='https://pplx-res.cloudinary.com/image/upload/t_thumbnail_512/pplx_search_images/ba5404e7e63cec206561d60ccf7076379bd77573.jpg' loading='lazy'>
-<img src='https://pplx-res.cloudinary.com/image/upload/t_thumbnail_512/pplx_search_images/ba5404e7e63cec206561d60ccf7076379bd77573.jpg' loading='lazy'>
-</div>
-<ul>
-<li>בלד → בובץ' דרך מעבר Vršič – כ-85 קמ, כ-1:20 ש'.</li>
-</ul>
-</div>
-<div class='day-block'>
-<div class='day-title'>יום 8/6 – Lake Krn – טרק אלפיני</div>
-<div class='day-date'>2026-06-08</div>
-<div class='day-summary'>טרק יום מלא לאגם Lake Krn וחזרה דרך בקתת ההרים.</div>
-<div class='day-images'>
-<img src='https://pplx-res.cloudinary.com/image/upload/t_thumbnail_512/pplx_search_images/ba5404e7e63cec206561d60ccf7076379bd77573.jpg' loading='lazy'>
-<img src='https://pplx-res.cloudinary.com/image/upload/t_thumbnail_512/pplx_search_images/1a14e7af3ee94f826d2a723f7935d4db2430ba85.jpg' loading='lazy'>
-</div>
-<ul>
-<li>בובץ' → Lepena (Dom dr. Klementa Juga) – כ-20 קמ, כ-30 דק' נסיעה.</li>
-</ul>
-</div>
-<div class='day-block'>
-<div class='day-title'>יום 9/6 – בובץ' → Hotel Boka + מפל Boka</div>
-<div class='day-date'>2026-06-09</div>
-<div class='day-summary'>מעבר ל-Hotel Boka, מסלול קצר למפל Boka וקטע מ-Soča Trail.</div>
-<div class='day-images'>
-<img src='https://pplx-res.cloudinary.com/image/upload/t_thumbnail_512/pplx_search_images/62248ede4679d7e7938986b745169052d753042b.jpg' loading='lazy'>
-<img src='https://pplx-res.cloudinary.com/image/upload/t_thumbnail_512/pplx_search_images/62248ede4679d7e7938986b745169052d753042b.jpg' loading='lazy'>
-</div>
-<ul>
-<li>בובץ' → Hotel Boka – כ-8 קמ, כ-10–15 דק' לאורך Soča.</li>
-</ul>
-</div>
-<div class='day-block'>
-<div class='day-title'>יום 10/6 – Soča → Goriška Brda (Maravida)</div>
-<div class='day-date'>2026-06-10</div>
-<div class='day-summary'>נסיעה דרך Tolmin ונובה גוריצה ל-Maravida, הליכת כרמים וטעימת יין אחת.</div>
-<div class='day-images'>
-<img src='https://pplx-res.cloudinary.com/image/upload/t_thumbnail_512/pplx_search_images/c8195b7234790d1f728e4521d233679dd574731e.jpg' loading='lazy'>
-<img src='https://pplx-res.cloudinary.com/image/upload/t_thumbnail_512/pplx_search_images/c8195b7234790d1f728e4521d233679dd574731e.jpg' loading='lazy'>
-</div>
-<ul>
-<li>עמק Soča → Šmartno (Maravida) – כ-65 קמ, כ-1:10 ש' דרך Tolmin/Nova Gorica.</li>
-</ul>
-</div>
-<div class='day-block'>
-<div class='day-title'>יום 11/6 – Brda → Sežana (Hotel Grahor)</div>
-<div class='day-date'>2026-06-11</div>
-<div class='day-summary'>בוקר רגוע בכרמים ואז נסיעה ל-Hotel Grahor וריצה/טיול קצר באזור.</div>
-<div class='day-images'>
-<img src='https://pplx-res.cloudinary.com/image/upload/t_thumbnail_512_smart/pplx_search_images/d681628a2f3be9a942e6a5c5edb2458a8659051a.jpg' loading='lazy'>
-</div>
-<ul>
-<li>Šmartno → Sežana (Grahor) – כ-60 קמ, כ-1–1:10 ש' דרך Nova Gorica/H4.</li>
-</ul>
-</div>
-<div class='day-block'>
-<div class='day-title'>יום 12/6 – Škocjan Caves + Rakov Škocjan</div>
-<div class='day-date'>2026-06-12</div>
-<div class='day-summary'>סיור במערות Škocjan בבוקר ומסלול טבע Rakov Škocjan אחר הצהריים.</div>
-<div class='day-images'>
-<img src='https://pplx-res.cloudinary.com/image/upload/t_thumbnail_512_smart/pplx_search_images/d681628a2f3be9a942e6a5c5edb2458a8659051a.jpg' loading='lazy'>
-<img src='https://pplx-res.cloudinary.com/image/upload/t_thumbnail_512_smart/pplx_search_images/e7dd9ffe3552b711e304980d7bd0662dba1d08a7.jpg' loading='lazy'>
-<img src='https://pplx-res.cloudinary.com/image/upload/t_thumbnail_512_smart/pplx_search_images/1da2cb3c16b9a5c8fa9340fcd059c3f326b2aed1.jpg' loading='lazy'>
-</div>
-<ul>
-<li>Grahor → Škocjan Caves – כ-20 קמ, כ-20–25 דק' נסיעה.</li>
-<li>Škocjan → Rakov Škocjan – כ-40 קמ, כ-35–40 דק' דרך A1/Unec.</li>
-<li>Rakov Škocjan → Grahor – כ-45 קמ, כ-40–45 דק' חזרה לקארסט.</li>
-</ul>
-</div>
-<div class='day-block'>
-<div class='day-title'>יום 13/6 – Vremščica → ונציה</div>
-<div class='day-date'>2026-06-13</div>
-<div class='day-summary'>בוקר: טרק Vremščica, אחהצ נסיעה לונציה ולילה רומנטי בעיר.</div>
-<div class='day-images'>
-<img src='https://images.daytrip.com/bled.jpg?w=640&q=60' loading='lazy'>
-<img src='https://pplx-res.cloudinary.com/image/upload/t_thumbnail_512_smart/pplx_search_images/8059661b96a75157beed1db474239906f4b8d74f.jpg' loading='lazy'>
-<img src='https://images.daytrip.com/bled.jpg?w=640&q=60' loading='lazy'>
-</div>
-<ul>
-<li>Grahor → נקודת יציאה ל-Vremščica (Senožeče) – כ-25 קמ, כ-30 דק'.</li>
-<li>Sežana → ונציה (Santa Croce) – כ-150 קמ, כ-1:30 ש' דרך A3/A4.</li>
-</ul>
-</div>
-</div>
-
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-<script>
-  var map = L.map('map').setView([46.1, 13.6], 8);
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    maxZoom: 18,
-    attribution: '&copy; OpenStreetMap contributors'
-  }).addTo(map);
-
-  var icon_stay = new L.Icon({
-    iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-icon.png',
-    shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-shadow.png',
-    iconAnchor: [12, 41],
-    popupAnchor: [1, -34]
-  });
-
-  // סיכות לינה
-  L.marker([45.4406403, 12.3046646], {icon: icon_stay}).addTo(map).bindPopup('<b>יום 4/6</b><br>הגעה לוונציה<br><i>Hampton by Hilton Venice Isola Nuova, Venice, Italy</i>');
-  L.marker([46.3639132, 14.0938069], {icon: icon_stay}).addTo(map).bindPopup('<b>יום 5/6</b><br>ונציה → בלד + Vintgar<br><i>Lake Bled, Slovenia</i>');
-  L.marker([46.3639132, 14.0938069], {icon: icon_stay}).addTo(map).bindPopup('<b>יום 6/6</b><br>יום טיולים בבלד<br><i>Lake Bled, Slovenia</i>');
-  L.marker([46.3563397, 13.6144183], {icon: icon_stay}).addTo(map).bindPopup('<b>יום 7/6</b><br>בלד → בובץ&#39; + רפטינג<br><i>Bovec, Slovenia</i>');
-  L.marker([46.3563397, 13.6144183], {icon: icon_stay}).addTo(map).bindPopup('<b>יום 8/6</b><br>Lake Krn – טרק אלפיני<br><i>Bovec, Slovenia</i>');
-  L.marker([45.7165194, 13.8826249], {icon: icon_stay}).addTo(map).bindPopup('<b>יום 11/6</b><br>Brda → Sežana (Hotel Grahor)<br><i>Hotel Grahor, Dane pri Sežani, Slovenia</i>');
-  L.marker([45.7165194, 13.8826249], {icon: icon_stay}).addTo(map).bindPopup('<b>יום 12/6</b><br>Škocjan Caves + Rakov Škocjan<br><i>Hotel Grahor, Dane pri Sežani, Slovenia</i>');
-  L.marker([45.4385739, 12.319339], {icon: icon_stay}).addTo(map).bindPopup('<b>יום 13/6</b><br>Vremščica → ונציה<br><i>Santa Croce, Venice, Italy</i>');
-
-  // קווי נסיעה יומיים
-  L.polyline([[45.4406403, 12.3046646], [46.3639132, 14.0938069]], {color: '#ff7f0e', weight: 4}).addTo(map).bindPopup('יום 5/6 – ונציה (Hampton Tronchetto) → בלד – כ-240 קמ, כ-3:05 ש&#39; דרך A4/A2.');
-  L.polyline([[46.3639132, 14.0938069], [46.3563397, 13.6144183]], {color: '#d62728', weight: 4}).addTo(map).bindPopup('יום 7/6 – בלד → בובץ&#39; דרך מעבר Vršič – כ-85 קמ, כ-1:20 ש&#39;.');
-  L.polyline([[46.3563397, 13.6144183], [46.3036788, 13.6817821]], {color: '#9467bd', weight: 4}).addTo(map).bindPopup('יום 8/6 – בובץ&#39; → Lepena (Dom dr. Klementa Juga) – כ-20 קמ, כ-30 דק&#39; נסיעה.');
-  L.polyline([[45.7165194, 13.8826249], [45.6658589, 13.9893738]], {color: '#bcbd22', weight: 4}).addTo(map).bindPopup('יום 12/6 – Grahor → Škocjan Caves – כ-20 קמ, כ-20–25 דק&#39; נסיעה.');
-  L.polyline([[45.6658589, 13.9893738], [45.7936505, 14.2911301]], {color: '#bcbd22', weight: 4}).addTo(map).bindPopup('יום 12/6 – Škocjan → Rakov Škocjan – כ-40 קמ, כ-35–40 דק&#39; דרך A1/Unec.');
-  L.polyline([[45.7936505, 14.2911301], [45.7165194, 13.8826249]], {color: '#bcbd22', weight: 4}).addTo(map).bindPopup('יום 12/6 – Rakov Škocjan → Grahor – כ-45 קמ, כ-40–45 דק&#39; חזרה לקארסט.');
-  L.polyline([[45.7165194, 13.8826249], [45.6920511, 14.0555635]], {color: '#17becf', weight: 4}).addTo(map).bindPopup('יום 13/6 – Grahor → נקודת יציאה ל-Vremščica (Senožeče) – כ-25 קמ, כ-30 דק&#39;.');
-  L.polyline([[45.7165194, 13.8826249], [45.4385739, 12.319339]], {color: '#17becf', weight: 4}).addTo(map).bindPopup('יום 13/6 – Sežana → ונציה (Santa Croce) – כ-150 קמ, כ-1:30 ש&#39; דרך A3/A4.');
-</script>
-</body>
-</html>
+const IMAGES = {
+  'venice-airport': 'https://images.unsplash.com/photo-1520175480921-4edfa0683001?auto=format&fit=crop&w=800&q=80',
+  'hampton-hotel': 'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80',
+  'morning-coffee': 'https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=800&q=80',
+  'lake-bled': 'https://images.unsplash.com/photo-1588613254500-613d969243ab?auto=format&fit=crop&w=800&q=80',
+  'vintgar-gorge': 'https://images.unsplash.com/photo-1548678967-f1fc5d33630d?auto=format&fit=crop&w=800&q=80',
+  'bled-walk': 'https://images.unsplash.com/photo-1516053704251-50993510c812?auto=format&fit=crop&w=800&q=80',
+  'cream-cake': 'https://images.unsplash.com/photo-1551024601-bec78aea704b?auto=format&fit=crop&w=800&q=80',
+  'mala-osojnica': 'https://images.unsplash.com/photo-1596395819057-e37f55a8516d?auto=format&fit=crop&w=800&q=80',
+  'mountain-road': 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=800&q=80',
+  'triglav-lakes': 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80',
+  'vrsic-pass': 'https://images.unsplash.com/photo-1472791108553-c9405341e398?auto=format&fit=crop&w=800&q=80',
+  'bovec-town': 'https://images.unsplash.com/photo-1498598457418-36ef20772bb9?auto=format&fit=crop&w=800&q=80',
+  'soca-rafting': 'https://images.unsplash.com/photo-1530866495547-08b978d46243?auto=format&fit=crop&w=800&q=80',
+  'lepena-valley': 'https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=800&q=80',
+  'lake-krn': 'https://images.unsplash.com/photo-1439853949127-fa647821eba0?auto=format&fit=crop&w=800&q=80',
+  'boka-waterfall': 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=800&q=80',
+  'gonjace-tower': 'https://images.unsplash.com/photo-1518391846015-55a9cc003b25?auto=format&fit=crop&w=800&q=80',
+  'scurek-winery': 'https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?auto=format&fit=crop&w=800&q=80',
+  'grahor-hotel': 'https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=800&q=80',
+  'skocjan-caves': 'https://images.unsplash.com/photo-1509233725247-49e657c54213?auto=format&fit=crop&w=800&q=80',
+  'rakov-skocjan': 'https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?auto=format&fit=crop&w=800&q=80',
+  'lipica-horses': 'https://images.unsplash.com/photo-1553284965-83fd3e82fa5a?auto=format&fit=crop&w=800&q=80',
+  'vremscica-peak': 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=800&q=80',
+  'santa-croce-hotel': 'https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=800&q=80',
+  'san-marco-morning': 'https://images.unsplash.com/photo-1514890547357-a9ee2887a35f?auto=format&fit=crop&w=800&q=80',
+  'gondola': 'https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?auto=format&fit=crop&w=800&q=80'
+};
