@@ -1,28 +1,203 @@
-const IMAGES = {
-  'venice-airport': 'https://images.unsplash.com/photo-1520175480921-4edfa0683001?auto=format&fit=crop&w=800&q=80',
-  'hampton-hotel': 'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80',
-  'morning-coffee': 'https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=800&q=80',
-  'lake-bled': 'https://images.unsplash.com/photo-1588613254500-613d969243ab?auto=format&fit=crop&w=800&q=80',
-  'vintgar-gorge': 'https://images.unsplash.com/photo-1548678967-f1fc5d33630d?auto=format&fit=crop&w=800&q=80',
-  'bled-walk': 'https://images.unsplash.com/photo-1516053704251-50993510c812?auto=format&fit=crop&w=800&q=80',
-  'cream-cake': 'https://images.unsplash.com/photo-1551024601-bec78aea704b?auto=format&fit=crop&w=800&q=80',
-  'mala-osojnica': 'https://images.unsplash.com/photo-1596395819057-e37f55a8516d?auto=format&fit=crop&w=800&q=80',
-  'mountain-road': 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=800&q=80',
-  'triglav-lakes': 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80',
-  'vrsic-pass': 'https://images.unsplash.com/photo-1472791108553-c9405341e398?auto=format&fit=crop&w=800&q=80',
-  'bovec-town': 'https://images.unsplash.com/photo-1498598457418-36ef20772bb9?auto=format&fit=crop&w=800&q=80',
-  'soca-rafting': 'https://images.unsplash.com/photo-1530866495547-08b978d46243?auto=format&fit=crop&w=800&q=80',
-  'lepena-valley': 'https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=800&q=80',
-  'lake-krn': 'https://images.unsplash.com/photo-1439853949127-fa647821eba0?auto=format&fit=crop&w=800&q=80',
-  'boka-waterfall': 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=800&q=80',
-  'gonjace-tower': 'https://images.unsplash.com/photo-1518391846015-55a9cc003b25?auto=format&fit=crop&w=800&q=80',
-  'scurek-winery': 'https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?auto=format&fit=crop&w=800&q=80',
-  'grahor-hotel': 'https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=800&q=80',
-  'skocjan-caves': 'https://images.unsplash.com/photo-1509233725247-49e657c54213?auto=format&fit=crop&w=800&q=80',
-  'rakov-skocjan': 'https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?auto=format&fit=crop&w=800&q=80',
-  'lipica-horses': 'https://images.unsplash.com/photo-1553284965-83fd3e82fa5a?auto=format&fit=crop&w=800&q=80',
-  'vremscica-peak': 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=800&q=80',
-  'santa-croce-hotel': 'https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=800&q=80',
-  'san-marco-morning': 'https://images.unsplash.com/photo-1514890547357-a9ee2887a35f?auto=format&fit=crop&w=800&q=80',
-  'gondola': 'https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?auto=format&fit=crop&w=800&q=80'
-};
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>סלובניה 2026 - תוכנית טיול</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2d5a27;
+            --secondary: #f4f7f6;
+            --accent: #d4a373;
+            --text: #333;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--secondary);
+            color: var(--text);
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            padding: 40px 0;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1588613254500-613d969243ab?auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            border-radius: 15px;
+            margin-bottom: 30px;
+        }
+
+        .day-card {
+            background: white;
+            border-radius: 12px;
+            margin-bottom: 25px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .day-header {
+            background: var(--primary);
+            color: white;
+            padding: 15px 20px;
+            font-size: 1.2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .image-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            padding: 15px;
+        }
+
+        .img-box {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 8px;
+            transition: transform 0.3s;
+        }
+
+        .img-box:hover {
+            transform: scale(1.02);
+        }
+
+        .content {
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .location-tag {
+            display: inline-block;
+            background: #e8f0e7;
+            color: var(--primary);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        ul {
+            padding-right: 20px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        .hotel-info {
+            background: #fff9f0;
+            border-right: 4px solid var(--accent);
+            padding: 10px 15px;
+            margin-top: 15px;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>סלובניה 2026</h1>
+        <p>מסע בין הרים, אגמים ותרבות מקומית</p>
+    </header>
+
+    <div id="itinerary"></div>
+</div>
+
+<script>
+    const IMAGES = {
+        'venice': 'https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?auto=format&fit=crop&w=800&q=80',
+        'bled': 'https://images.unsplash.com/photo-1588613254500-613d969243ab?auto=format&fit=crop&w=800&q=80',
+        'vintgar': 'https://images.unsplash.com/photo-1548678967-f1fc5d33630d?auto=format&fit=crop&w=800&q=80',
+        'vrsic': 'https://images.unsplash.com/photo-1472791108553-c9405341e398?auto=format&fit=crop&w=800&q=80',
+        'soca': 'https://images.unsplash.com/photo-1530866495547-08b978d46243?auto=format&fit=crop&w=800&q=80',
+        'wine': 'https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?auto=format&fit=crop&w=800&q=80',
+        'caves': 'https://images.unsplash.com/photo-1509233725247-49e657c54213?auto=format&fit=crop&w=800&q=80',
+        'horses': 'https://images.unsplash.com/photo-1553284965-83fd3e82fa5a?auto=format&fit=crop&w=800&q=80'
+    };
+
+    const schedule = [
+        {
+            day: "יום 1: נחיתה והתארגנות",
+            location: "ונציה -> בלד",
+            img1: IMAGES.venice,
+            img2: IMAGES.bled,
+            details: ["נחיתה בונציה ואיסוף רכב", "נסיעה לכיוון אגם בלד בסלובניה", "צ'ק-אין במלון וסיור ערב רגוע באגם"],
+            hotel: "לינה: Hampton by Hilton Venice (או דומה בבלד)"
+        },
+        {
+            day: "יום 2: טבע ואקסטרים רך",
+            location: "קניון וינטגאר ואגם בלד",
+            img1: IMAGES.vintgar,
+            img2: IMAGES.bled,
+            details: ["הליכה על גשרי העץ בקניון וינטגאר", "טיפוס לתצפית Mala Osojnica", "טעימת עוגת הקרמשניט המפורסמת"],
+            hotel: "לינה: אזור בלד"
+        },
+        {
+            day: "יום 3: מעברי הרים",
+            location: "מעבר ורשיץ' ועמק הסוצ'ה",
+            img1: IMAGES.vrsic,
+            img2: IMAGES.soca,
+            details: ["נהיגה ב-50 הפיתולים של מעבר ורשיץ'", "עצירה באגם Jasna", "הגעה לעיירה בובץ' (Bovec)"],
+            hotel: "לינה: Maravida Rooms, Bovec"
+        },
+        {
+            day: "יום 4: מים ויין",
+            location: "עמק הסוצ'ה -> גורישקה ברדה",
+            img1: IMAGES.soca,
+            img2: IMAGES.wine,
+            details: ["רפטינג או הליכה לאורך נהר הסוצ'ה הטורקיז", "נסיעה לאזור היין גורישקה ברדה", "טעימות יין ביקב Scurek"],
+            hotel: "לינה: Hotel Grahor"
+        },
+        {
+            day: "יום 5: מעמקי האדמה וסיום",
+            location: "מערות שקוציאן וחזרה לונציה",
+            img1: IMAGES.caves,
+            img2: IMAGES.horses,
+            details: ["ביקור במערות שקוציאן (אתר מורשת עולמית)", "ביקור בחוות הסוסים הלבנים בליפיצה", "נסיעה חזרה לונציה לטיסת לילה"],
+            hotel: "סיום הטיול"
+        }
+    ];
+
+    const itineraryContainer = document.getElementById('itinerary');
+
+    schedule.forEach(item => {
+        const card = document.createElement('div');
+        card.className = 'day-card';
+        card.innerHTML = `
+            <div class="day-header">
+                <span>${item.day}</span>
+                <i class="fas fa-calendar-day"></i>
+            </div>
+            <div class="image-grid">
+                <div class="img-box" style="background-image: url('${item.img1}')"></div>
+                <div class="img-box" style="background-image: url('${item.img2}')"></div>
+            </div>
+            <div class="content">
+                <div class="location-tag"><i class="fas fa-map-marker-alt"></i> ${item.location}</div>
+                <ul>
+                    ${item.details.map(detail => `<li>${detail}</li>`).join('')}
+                </ul>
+                <div class="hotel-info"><i class="fas fa-bed"></i> ${item.hotel}</div>
+            </div>
+        `;
+        itineraryContainer.appendChild(card);
+    });
+</script>
+
+</body>
+</html>
